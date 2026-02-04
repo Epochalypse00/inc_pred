@@ -1,4 +1,4 @@
-##Classical Machine Learning – Income Prediction (Foundations)
+Classical Machine Learning – Income Prediction (Foundations)
 📌 Project Overview
 
 This project focuses on mastering foundational classical machine learning practices using a tabular income prediction task.
@@ -18,7 +18,7 @@ model comparison and decision trade-offs
 
 This work reflects intern-level ML engineering expectations.
 
-33🎯 Problem Statement
+🎯 Problem Statement
 
 Given demographic and employment-related features, predict whether an individual earns:
 
@@ -28,7 +28,7 @@ Given demographic and employment-related features, predict whether an individual
 
 This is a binary classification problem with class imbalance, making it suitable for studying precision–recall trade-offs.
 
-33📊 Dataset
+📊 Dataset
 
 Source: Hugging Face
 
@@ -44,7 +44,7 @@ Categorical: education, occupation, marital_status, workclass, etc.
 
 The dataset does not provide a predefined test split, so a manual stratified train/validation split was created.
 
-33🧠 Project Objectives
+🧠 Project Objectives
 
 This project was designed to practice and demonstrate:
 
@@ -62,8 +62,8 @@ Interpreting confusion matrices and error types
 
 Making metric-driven decisions rather than accuracy-driven ones
 
-##🛠️ Methodology
-#1️⃣ Data Splitting
+🛠️ Methodology
+1️⃣ Data Splitting
 
 80/20 train–validation split
 
@@ -71,7 +71,7 @@ Stratified by target variable
 
 Fixed random seed for reproducibility
 
-#2️⃣ Preprocessing (Leakage-Safe)
+2️⃣ Preprocessing (Leakage-Safe)
 
 All preprocessing steps were performed inside sklearn Pipelines, ensuring that transformations were learned only from training data.
 
@@ -87,7 +87,7 @@ Most-frequent imputation
 
 One-hot encoding (handle_unknown="ignore")
 
-#3️⃣ Models Trained
+3️⃣ Models Trained
 Logistic Regression
 
 Linear baseline
@@ -108,7 +108,7 @@ Higher recall and F1 score
 
 Reduced interpretability compared to linear models
 
-##📈 Model Comparison (5-Fold Cross-Validation)
+📈 Model Comparison (5-Fold Cross-Validation)
 Model	ROC-AUC (CV)	Precision (>50K)	Recall (>50K)	F1 (>50K)
 Logistic Regression	0.9070 ± 0.0013	0.7326	0.6008	0.6601
 Random Forest	0.9168 ± 0.0019	0.7751	0.6050	0.6795
@@ -122,7 +122,7 @@ Precision remains high for both models, while recall for >50K remains challengin
 
 Performance differences are meaningful but not extreme, reinforcing the importance of model choice based on use case.
 
-##🎯 Threshold Tuning & Decision Trade-Offs
+🎯 Threshold Tuning & Decision Trade-Offs
 
 Rather than relying on the default probability threshold (0.5), the Logistic Regression model was threshold-tuned.
 
@@ -136,7 +136,7 @@ This highlights that classification performance is a decision, not a fixed outco
 
 Such tuning may be preferred when missing high-income individuals is more costly than allowing additional false positives.
 
-##⚠️ Challenges Encountered
+⚠️ Challenges Encountered
 
 Several real-world ML challenges were intentionally addressed:
 
@@ -154,7 +154,7 @@ Understanding why accuracy alone is misleading on imbalanced data
 
 Each issue was resolved explicitly to reinforce correct ML practices.
 
-##🧠 Key Lessons Learned
+🧠 Key Lessons Learned
 
 Proper pipelines are essential to avoid data leakage
 
